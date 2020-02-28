@@ -28,25 +28,23 @@
 
 不论全局排序还是局部排序都是可传递的以及对称的。下面描述a，b，c关系的语句对于全局排序和局部排序都适用：
 
-> If a ≤ b and b ≤ a then a = b（对称性）;
-> If a ≤ b and b ≤ c then a ≤ c（传递性）；
+If a ≤ b and b ≤ a then a = b（对称性）;
+If a ≤ b and b ≤ c then a ≤ c（传递性）;
 
 但是，一个全局排序是[全局性](http://en.wikipedia.org/wiki/Total_relation)：
 
-> a ≤ b or b ≤ a (全局性) for all a, b in X
->
+a ≤ b or b ≤ a (全局性) for all a, b in X 
 
 而一个局部排序只有[自反性](http://en.wikipedia.org/wiki/Reflexive_relation):
 
-> a ≤ a (自反性) for all a in X
->
+a ≤ a (自反性) for all a in X 
 
 注意有全局性同样也意味着有自反性；所以一个局部排序是一个全局排序的弱变体。对于在一个局部排序体系里的所有元素来说，是不包含全局性的 - 换句话说就是有些元素没法进行比较。
 
 Git的分支就是一个局部排序的例子。正如你可能知道，git版本控制系统允许你从一个基础分支（比如master分支）拉出很多新分支。每个分支都能看到从同一个祖先继承下来的所有代码变更的历史记录。
 
-> [ branch A (1,2,0)]  [ master (3,0,0) ]  [ branch B (1,0,2) ]
-> [ branch A (1,1,0)]  [ master (2,0,0) ]  [ branch B (1,0,1) ]
->                   \  [ master (1,0,0) ]  /
+[ branch A (1,2,0)]  [ master (3,0,0) ]  [ branch B (1,0,2) ]
+[ branch A (1,1,0)]  [ master (2,0,0) ]  [ branch B (1,0,1) ]
+                  \  [ master (1,0,0) ]  /
 
 A分支和B分支都起源了同一个祖先，但是
